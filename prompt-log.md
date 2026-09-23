@@ -86,3 +86,12 @@
 
 ---
 
+## 2026-09-23 12:10 คำสั่ง: /implement T-10
+
+- เครื่องมือ: Copilot ใน Codespaces
+- ไฟล์ที่สร้าง/แก้: frontend/src/pages/SlotPicker.jsx, frontend/src/__tests__/T-10.slotpicker.test.jsx
+- ผล test: `cd frontend && npm test -- --run src/__tests__/T-10.slotpicker.test.jsx` ผ่าน (exit code 0)
+- สิ่งที่เกือบต้องเดาแต่ถามแทน: ไม่มี; ใช้ API client ที่มีอยู่และไม่เพิ่มฟีเจอร์นอก FR-BKG-01 / FR-BKG-06
+
+---
+
