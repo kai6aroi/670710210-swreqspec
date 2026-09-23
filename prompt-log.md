@@ -77,3 +77,12 @@
 
 ---
 
+## 2026-09-23 11:15 คำสั่ง: /implement T-01
+
+- เครื่องมือ: Copilot ใน Codespaces
+- ไฟล์ที่สร้าง/แก้: backend/app/__init__.py, backend/app/db/__init__.py, backend/app/db/models.py, backend/app/db/session.py, backend/app/db/migrations/__init__.py, backend/app/db/migrations/001_init.py, backend/tests/test_T_01_db_init.py
+- ผล test: `cd backend && pytest tests/test_T_01_db_init.py -q` ผ่าน (exit code 0)
+- สิ่งที่เกือบต้องเดาแต่ถามแทน: ไม่มี; สร้างตาม spec และ plan อย่างตรงไปตรงมา โดยใช้ PostgreSQL-ready schema และ SQLite ใน-memory สำหรับ test
+
+---
+
