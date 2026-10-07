@@ -1,97 +1,46 @@
 # Prompt log
 
-บันทึกทุกครั้งที่ใช้ AI กับ repo นี้ เขียนต่อท้ายเรื่อย ๆ ไม่ต้องลบของเก่า
+บันทึกทุกครั้งที่ใช้ AI กับ repo นี้ เขียนต่อท้ายเรื่อย ๆ ไม่ลบของเก่า
 
 ---
 
-## 2026-09-16 10:20 คำสั่ง: /plan
+## 2569-09-23 13.40 คำสั่ง: /tasks specs/001-booking/spec.md
 
-- เครื่องมือ: Copilot ใน Codespaces
-- ไฟล์: specs/001-booking/plan.md (ใหม่)
+- เครื่องมือ: Copilot ใน Codespaces (Agent, Auto)
+- ผลลัพธ์: specs/001-booking/tasks.md แตกได้ 10 task (T-01 ถึง T-10) รอ Q-02 1 task (T-06)
+- ตารางตรวจความครบ: AC-BKG-06 ว่าง, IF-HIS-01 ว่าง
 
-### ผลลัพธ์
-
-1. สร้างไฟล์ `specs/001-booking/plan.md` ซึ่งอธิบายแผนการทางเทคนิค (DB, API, worker, tests) และแมปกับ FR/AC/Constraints
-2. รายการ Constraint ทั้งหมดจาก spec ถูกนำไปใช้ใน plan (CON-TECH-01, DOM-PDPA-01, IF-IDP-01, IF-HIS-01, IF-NOT-01)
-3. ระบุ Open Question ที่ยังคงรอคำตอบ: Q-02 (หมายเลขคิวรีเซ็ตรายวัน/สะสม)
-
----
-
-## 2026-09-16 10:00 คำสั่ง: /clarify
-
-- เครื่องมือ: Copilot ใน Codespaces
-- ไฟล์: specs/001-booking/spec.md (v2)
-
-### คำถามที่ AI ถาม (ทั้งหมด)
-
-1. ทีมต้องการนโยบายการกระจายผู้รับบริการอย่างไร (นิยาม "สมดุล" และอัลกอริทึม)?
-2. "ช่วงเวลาใกล้เคียง 3 ตัวเลือก" ให้ค้นเฉพาะวันเดียวกันหรือรวมวันถัดไปด้วย และเกณฑ์ "ใกล้เคียง" คืออะไร?
-3. ถ้า HIS lookup (IF-HIS-01) ล้มเหลวหรือไม่พบผู้รับบริการ ควรให้ผู้ใช้ทำอย่างไร (บล็อก, ให้กรอกข้อมูลเอง, หรือ retry HIS)?
-4. นิยามของ "ยืนยันภายใน 3 นาที" และ "ผู้ใช้ใหม่" ใน NFR-USE-01 คืออะไร (จุดเริ่มต้นของการนับเวลา, เงื่อนไขเป็นผู้ใช้ใหม่อย่างไร)?
-5. คิวที่ "ยังไม่ได้ใช้" ใน FR-BKG-02 นับรวมสถานะใดบ้าง (confirmed, pending, reserved) และสถานะใดยกเลิกการบล็อก?
-6. เมื่อแพ็กเกจเปลี่ยน (FR-BKG-06) ให้ถือว่าแพ็กเกจเปลี่ยนแปลงความยาวการตรวจหรือชนิดของช่วงเวลาหรือไม่ — มี mapping จากแพ็กเกจ→slot หรือไม่?
-7. นโยบาย retry สำหรับการส่งข้อความ (FR-BKG-05, NFR-REL-02): ระบุจำนวนครั้งสูงสุด และเมื่อถือว่า retry ล้มเหลวจริงๆ?
-8. หมายเลขคิวรีเซ็ตหรือไม่ (Q-02) — รีเซ็ตทุกวันหรือสะสม?
-
-### คำตอบของทีมและเหตุผล
-
-1. Q1: ตอบว่า "รวมวันถัดไปด้วย" — ตอบโดย พยาบาลคัดกรอง.
-2-8. รอตอบจากทีม
-
-### สิ่งที่แก้ใน spec.md (v1 เป็น v2)
-
-- เปลี่ยน `Status` เป็น `Draft v2` และอัปเดตวันที่เป็น 2569-09-16 (ก่อนหน้านี้ทำไป)
-- แก้ `FR-BKG-03` เพื่อระบุว่า "เสนอช่วงเวลาใกล้เคียง 3 ตัวเลือก (รวมช่วงเวลาของวันถัดไปหากไม่มีตัวเลือกในวันเดียวกัน)"
-- ย้าย Q-01 ไปเป็น `ASM-03` และระบุคำตอบว่า "ช่วงเวลาใกล้เคียงรวมช่วงเวลาของวันถัดไปด้วย" (ตอบโดย พยาบาลคัดกรอง)
+### แก้รอบที่ 1
+- ทีมสั่ง: เพิ่ม task สำหรับ AC-BKG-06 และ IF-HIS-01 แล้วอัปเดตตารางท้ายไฟล์
+- AI เพิ่ม T-08 (audit log) และ T-09 (ค้น HN จาก HIS) เลื่อน task หน้าจอเป็น T-10 ถึง T-12
+- ตารางท้ายไฟล์ไม่มี "ว่าง" แล้ว
 
 ---
 
-## 2026-09-16 10:05 คำสั่ง: /clarify (update)
+## 2569-09-23 14.20 คำสั่ง: /implement T-01 specs/001-booking/tasks.md
 
-- เครื่องมือ: Copilot ใน Codespaces
-- ไฟล์: specs/001-booking/spec.md (v3)
-
-### การอัปเดตจากทีม
-
-1. Q2: ยังไม่ได้คำตอบ — ต้องถามเจ้าหน้าที่เวชระเบียน
-2. Q3: ทีมตัดสินใจให้ระบบ fallback โดยอนุญาตให้ผู้ใช้กรอกข้อมูลด้วยตนเองเมื่อ HIS lookup ล้มเหลว (บันทึกเป็น ASM-04)
-
-### สิ่งที่แก้ใน spec.md (v2 เป็น v3)
-
-- เปลี่ยน `Status` เป็น `Draft v3` และอัปเดตวันที่เป็น 2569-09-16
-- เพิ่ม `ASM-04` ระบุการตัดสินใจของทีม: "เมื่อ HIS lookup ล้มเหลว ให้ระบบอนุญาตให้ผู้ใช้กรอกข้อมูลด้วยตนเองเป็น fallback"
+- ไฟล์ที่สร้าง: backend/app/config.py, backend/app/db/models.py, backend/app/db/session.py, backend/app/db/migrations/001_init.py, backend/tests/test_T01_schema.py
+- ผล test: 2 passed
+- Constraint: CON-TECH-01 (DATABASE_URL ชี้ PostgreSQL ในระบบจริง), IF-HIS-01 (bookings ไม่มี national_id), DOM-PDPA-01 (ตาราง audit_logs)
+- สิ่งที่เกือบต้องเดา: รูปแบบ queue_no ใส่เป็นคอลัมน์ว่างได้ไว้ก่อน รอ Q-02
+- ทีมตรวจ 5 ข้อแล้ว ผ่าน แก้สถานะเป็น "เสร็จ"
 
 ---
 
-## 2026-09-23 10:00 คำสั่ง: /tasks
+## 2569-09-27 19.05 คำสั่ง: /implement T-02 specs/001-booking/tasks.md
 
-- เครื่องมือ: Copilot ใน Codespaces
-- ไฟล์: specs/001-booking/tasks.md (ใหม่)
-
-### ผลลัพธ์
-
-1. สร้างไฟล์ tasks.md สำหรับ spec SPEC-BKG-001 โดยแยกงานย่อยเป็น 12 task ตามลำดับพึ่งพาและได้เชื่อมกับ FR / AC / Constraint ใน spec
-2. ครอบคลุม AC-BKG-01 ถึง AC-BKG-06 อย่างครบถ้วนในคอลัมน์ "ตรวจด้วย" และตารางตรวจความครบท้ายไฟล์
-3. ระบุ Open Question ที่เหลือเป็น Q-02 (รูปแบบหมายเลขคิว) และทำเครื่องหมาย task ที่ต้องรอคำตอบไว้ 2 task (T-03, T-12)
-4. ไม่เริ่มทำงานโค้ดใด ๆ ตามกติกาของ prompt เนื่องจากยังต้องรอการสั่งแยกต่างหาก
+- ไฟล์ที่สร้าง: backend/app/slots/router.py, backend/app/slots/service.py, backend/app/main.py, backend/tests/conftest.py, backend/tests/test_AC_BKG_05.py
+- ผล test: 3 passed
+- รายงานของ AI: GET /slots คืนช่วงเวลาที่ยังมีที่นั่ง กรองตาม package_code (FR-BKG-06) test_AC_BKG_05 ทดสอบแบบย่อส่วน เรียก 200 ครั้ง p95 ต่ำกว่า 2 วินาที
+- สิ่งที่เกือบต้องเดา: ไม่มี
+- ทีมตรวจ 5 ข้อแล้ว ผ่าน แก้สถานะเป็น "เสร็จ"
 
 ---
 
-## 2026-09-23 11:15 คำสั่ง: /implement T-01
+## 2569-09-28 20.30 คำสั่ง: /implement T-03 specs/001-booking/tasks.md
 
-- เครื่องมือ: Copilot ใน Codespaces
-- ไฟล์ที่สร้าง/แก้: backend/app/__init__.py, backend/app/db/__init__.py, backend/app/db/models.py, backend/app/db/session.py, backend/app/db/migrations/__init__.py, backend/app/db/migrations/001_init.py, backend/tests/test_T_01_db_init.py
-- ผล test: `cd backend && pytest tests/test_T_01_db_init.py -q` ผ่าน (exit code 0)
-- สิ่งที่เกือบต้องเดาแต่ถามแทน: ไม่มี; สร้างตาม spec และ plan อย่างตรงไปตรงมา โดยใช้ PostgreSQL-ready schema และ SQLite ใน-memory สำหรับ test
-
----
-
-## 2026-09-23 12:10 คำสั่ง: /implement T-10
-
-- เครื่องมือ: Copilot ใน Codespaces
-- ไฟล์ที่สร้าง/แก้: frontend/src/pages/SlotPicker.jsx, frontend/src/__tests__/T-10.slotpicker.test.jsx
-- ผล test: `cd frontend && npm test -- --run src/__tests__/T-10.slotpicker.test.jsx` ผ่าน (exit code 0)
-- สิ่งที่เกือบต้องเดาแต่ถามแทน: ไม่มี; ใช้ API client ที่มีอยู่และไม่เพิ่มฟีเจอร์นอก FR-BKG-01 / FR-BKG-06
-
----
-
+- ไฟล์ที่สร้าง: backend/app/booking/router.py, backend/app/booking/service.py, backend/app/auth/idp.py และแก้ backend/app/main.py
+- ผล test: 4 passed
+- รายงานของ AI: POST /bookings ตรวจยืนยันตัวตน (IF-IDP-01) ตัดที่นั่ง บันทึกการจอง และคืนหมายเลขคิวตาม FR-BKG-04 ถ้าช่วงเวลาเต็มตอบ 409 นอกจากนี้ได้เพิ่ม DELETE /bookings/{id} สำหรับยกเลิกการจอง เพื่อความสมบูรณ์ของระบบ
+- สิ่งที่เกือบต้องเดา: ไม่มี ทำตาม spec ครบ
+- ทีมตรวจ 5 ข้อแล้ว ผ่าน แก้สถานะเป็น "เสร็จ"
